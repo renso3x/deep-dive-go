@@ -68,7 +68,6 @@ func newDeckFromFile(filename string) deck {
 func (d deck) shuffle() {
 
 	generateRandomNumber := time.Now().UnixNano()
-
 	source := rand.NewSource(generateRandomNumber)
 	r := rand.New(source)
 
