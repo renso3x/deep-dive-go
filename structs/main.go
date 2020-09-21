@@ -57,7 +57,6 @@ func (pointerToPerson *person) updateName(fname string) {
 	(*pointerToPerson).firstName = fname
 }
 
-
 // structs can have a receiver
 func (p person) print() {
 	// %+v prints out all the property name of struct
