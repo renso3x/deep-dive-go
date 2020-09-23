@@ -22,24 +22,39 @@ func main() {
 
 	defer db.Close()
 
-	results, err := db.Query("SELECT * from users")
+	var user User
+
+	// QUery a single Row
+
+	err = db.QueryRow("SELECT * from users where name=?", "ROMEO").Scan(&user.Name)
 
 	if err != nil {
 		panic(err.Error())
 	}
 
-	for results.Next() {
-		var user User
+	fmt.Println(user.Name)
 
-		err := results.Scan(&user.Name)
+	// SELECT ALL
+	// results, err := db.Query("SELECT * from users")
 
-		if err != nil {
-			panic(err.Error())
-		}
+	// if err != nil {
+	// 	panic(err.Error())
+	// }
 
-		fmt.Println(user.Name)
+	// for results.Next() {
+	// 	var user User
+	// 	// for each row, scan the result into our tag composite object
 
-	}
+	// 	err := results.Scan(&user.Name)
+
+	// 	if err != nil {
+	// 		panic(err.Error())
+	// 	}
+
+	// 	fmt.Println(user.Name)
+	// }
+	// defer results.Close()
+
 }
 
 // func insertToDb() {
