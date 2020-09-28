@@ -16,7 +16,7 @@ type User struct {
 }
 
 type Todo struct {
-	TodoID uint   `json:"todoId" gorm:"primary_key"`
+	TodoID uint   `json:"todoId" gorm:"primary_key:autoincrement"`
 	Name   string `json:"name"`
 	UserId uint   `json: "-"`
 }
